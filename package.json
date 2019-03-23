@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack"
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,8 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MPolonis/Webpack-Loaders/issues"
+    "url": "https://github.com/MPolonis/Webpack-Loaders/issues",
+    "start": "webpack --mode development"
   },
   "homepage": "https://github.com/MPolonis/Webpack-Loaders#readme",
   "devDependencies": {
