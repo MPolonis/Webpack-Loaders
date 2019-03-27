@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
 import TodoList from '../components/TodoList';
+import { hot } from 'react-hot-loader';
 
 
 class App extends React.Component {
@@ -38,14 +39,15 @@ class App extends React.Component {
         this.setState({data: remainder});
     }
     render() {
-        const listToDo = this.state.data.map((id) => <li key={id.id}>{id.text}</li>);
+        const listToDo = this.state.data.map((id) => <li key={id.id} onClick={() => this.removeTodo(id)}>{id.text}</li>);
+
         return (
             <div className={style.TodoApp}>
                 <Title title={this.state.title} taskNumber={this.state.data.length} />
-                <TodoList list={listToDo} onClick={this.removeTodo} />
+                <TodoList list={listToDo}  />
             </div>
         )
     }
 }
 
-export default App;
+export default hot(module) (App);
