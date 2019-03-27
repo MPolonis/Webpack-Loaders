@@ -38,11 +38,11 @@ class App extends React.Component {
         this.setState({data: remainder});
     }
     render() {
-        const listToDo = this.state.data.map((id) => <li key={id.id}>{id.text}</li>);
+
         return (
             <div className={style.TodoApp}>
                 <Title title={this.state.title} taskNumber={this.state.data.length} />
-                <TodoList list={listToDo} onClick={this.removeTodo} />
+                <TodoList data={this.state.data} remove={(id) => this.removeTodo(id)} />
             </div>
         )
     }
