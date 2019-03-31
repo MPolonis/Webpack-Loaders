@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
 import TodoList from '../components/TodoList';
+import TodoForm from '../components/TodoForm';
 import { hot } from 'react-hot-loader';
 
 
@@ -25,6 +26,7 @@ class App extends React.Component {
             title: 'Webpack Loaders'
         };
         this.removeTodo = this.removeTodo.bind(this);
+        this.addTodo = this.addTodo.bind(this);
     }
     addTodo(val){
         const todo = {
@@ -38,12 +40,14 @@ class App extends React.Component {
         const remainder = this.state.data.filter(todo => todo.id !== id);
         this.setState({data: remainder});
     }
+
     render() {
 
         return (
             <div className={style.TodoApp}>
                 <Title title={this.state.title} taskNumber={this.state.data.length} />
                 <TodoList data={this.state.data} remove={ (id) => this.removeTodo(id)} />
+                <TodoForm onSubmit={ (val) => this.addTodo(val)}/>
             </div>
         )
     }
