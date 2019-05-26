@@ -28,9 +28,9 @@ class App extends React.Component {
         this.removeTodo = this.removeTodo.bind(this);
         this.addTodo = this.addTodo.bind(this);
     }
-    addTodo(val){
+    addTodo(inputValue) {
         const todo = {
-            text: val,
+            text: inputValue,
             id: uuid.v4()
         };
         const data = [...this.state.data, todo];
@@ -47,7 +47,7 @@ class App extends React.Component {
             <div className={style.TodoApp}>
                 <Title title={this.state.title} taskNumber={this.state.data.length} />
                 <TodoList data={this.state.data} remove={ (id) => this.removeTodo(id)} />
-                <TodoForm onSubmit={ (val) => this.addTodo(val)}/>
+                <TodoForm addTodo={this.addTodo}/>
             </div>
         )
     }
