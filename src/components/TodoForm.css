@@ -1,0 +1,18 @@
+.TodoForm {
+    width: 250px;
+    height: 30px;
+    font-size: 20px;
+    display: block;
+}
+
+.SubButton {
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.SubButton:hover {
+    background-color: #e25d46;
+    color: #fff;
+}

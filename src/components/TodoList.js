@@ -1,17 +1,26 @@
 import React from 'react';
-import style from '../containers/List.css';
+import Todo from './Todo';
+import style from './TodoList.css';
 
-const TodoList = props => {
-    const listToDo = props.data.map((item) => <li key={item.id} onClick={() => props.remove(item.id)}>{item.text}</li>);
 
-    return (
-        <div>
-            <h2>Tasks to do:</h2>
-            <ul className={style.ToDoList}>
-                {listToDo}
-            </ul>
-        </div>
-    )
+class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return this.props.data.map(item => {
+            return (
+                <div className={style.TodoList} key={item.id}>
+                    <Todo 
+                        key={item.id}
+                        clickEvent={this.props.remove.bind(this, item.id)}
+                        text={item.text}
+                        id={item.id}
+                    />
+                </div>
+            )
+        });
+    }
 }
 
 export default TodoList;
